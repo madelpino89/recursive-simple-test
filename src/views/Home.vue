@@ -49,7 +49,6 @@ const categories = [
 ];
 
 const getCategoryPath = (categories, categoryName) => {
-  debugger;
   for (const category of categories) {
     if (category.name === categoryName) {
       return `/${category.name}`;
@@ -68,7 +67,6 @@ const getCategoryPath = (categories, categoryName) => {
 };
 
 const showResult = categoryName => {
-  debugger;
   result.value = '';
   const path = getCategoryPath(categories, categoryName);
   result.value = path;
