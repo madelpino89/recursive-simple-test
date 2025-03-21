@@ -1,28 +1,54 @@
 <template>
   <div class="grid">
     <div class="xl:col-12 lg:col-12 sm:col-12 btn-container">
-      <Button icon="pi pi-angle-double-right" severity="warn" raised label="Show Result Cat4" @click="showResult('category4')" />
+      <Button
+        icon="pi pi-angle-double-right"
+        severity="warn"
+        raised
+        label="Show Result Cat4"
+        @click="showResult('category4')"
+      />
     </div>
 
     <div class="xl:col-12 lg:col-12 sm:col-12 btn-container">
-      <Button icon="pi pi-angle-double-right" severity="success" raised label="Show Result Cat2" @click="showResult('category2')" />
+      <Button
+        icon="pi pi-angle-double-right"
+        severity="success"
+        raised
+        label="Show Result Cat2"
+        @click="showResult('category2')"
+      />
     </div>
 
     <div class="xl:col-12 lg:col-12 sm:col-12 btn-container">
-      <Button icon="pi pi-angle-double-right" severity="help" raised label="Show Result Cat5" @click="showResult('category5')" />
+      <Button
+        icon="pi pi-angle-double-right"
+        severity="help"
+        raised
+        label="Show Result Cat5"
+        @click="showResult('category5')"
+      />
+    </div>
+
+    <div class="xl:col-12 lg:col-12 sm:col-12 btn-container">
+      <Button
+        icon="pi pi-angle-double-right"
+        severity="secondary"
+        raised
+        label="Show Result CatX"
+        @click="showResult('categoryX')"
+      />
     </div>
   </div>
 
   <Message v-if="result" size="large" icon="pi pi-check">{{ result }}</Message>
 </template>
 <script setup>
+import Button from "primevue/button";
+import { ref } from "vue";
+const result = ref("");
 
-import Button from 'primevue/button';
-
-import { ref } from 'vue';
-
-
-const result = ref('');
+// Use the categories array for implementing the getCategoryPath function
 const categories = [
   {
     name: "category1",
@@ -66,16 +92,16 @@ const getCategoryPath = (categories, categoryName) => {
   return null;
 };
 
-const showResult = categoryName => {
-  result.value = '';
+const showResult = (categoryName) => {
+  result.value = "";
   const path = getCategoryPath(categories, categoryName);
   result.value = path;
   console.log(path);
 };
 </script>
 <style>
-    .btn-container {
-        margin: auto;
-        margin-bottom: 20px;
-    }
+.btn-container {
+  margin: auto;
+  margin-bottom: 20px;
+}
 </style>
